@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #111;
+  --foreground: #fff;
+  --accent: #dd8560;
+
+  --font-primary: Tenor Sans;
+  --font-secondary: Montserrat;
+}
+
+html,
+body,
+#__next {
+  @apply h-full;
+}
+
+main {
+  @apply min-h-full;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-secondary), sans-serif;
+}
+
+h1,
+h2 {
+  font-family: var(--font-primary), sans-serif;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+p {
+  @apply text-xl font-secondary;
+}
+
+textarea {
+  @apply w-full p-3 border rounded-md text-white bg-transparent border-accent min-h-[156px];
+}
+
+@layer components {
+  .btn {
+    @apply uppercase rounded-full h-12 font-semibold tracking-[0.3em] border border-accent font-secondary disabled:cursor-not-allowed data-[active=true]:bg-accent transition-colors disabled:opacity-50;
+  }
+
+  .btn-accent {
+    @apply md:enabled:hover:bg-accent;
+  }
+}
+
+button {
+  @apply btn;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .loading-indicator {
+    @apply relative;
+
+    &::before {
+      @apply absolute inset-1/2 -m-3 animate-spin cursor-not-allowed rounded-[50%] border-2 border-gray-300 border-t-accent content-[""];
+    }
+
+    /* We don't apply opacity-50 to the parent element otherwise it also makes the loading
+   indicator translucent, which reduces its contrast. */
+    > * {
+      @apply cursor-not-allowed opacity-40;
+    }
+  }
+}
