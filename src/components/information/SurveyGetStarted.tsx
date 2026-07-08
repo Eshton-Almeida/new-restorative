@@ -7,10 +7,9 @@ export function SurveyGetStarted() {
 
   return (
     <div className="flex flex-col gap-8 motion-preset-focus-sm">
-      <h2 className="text-7xl uppercase">Let's get started.</h2>
+      <h2 className="text-7xl uppercase">Let's find the right treatment for you.</h2>
       <p className="text-xl font-medium">
-        We'll need to ask you some questions to determine if you are eligible
-        for treatment.
+        A few quick questions, reviewed by our clinical team, so we can recommend a personalized treatment that's right for you.
       </p>
       <button
         onClick={() => transitionSurvey(SurveySection.PlaceOfResidence)}
